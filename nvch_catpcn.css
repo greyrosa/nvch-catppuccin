@@ -1,0 +1,479 @@
+/* ============================================
+   NOVACHAN CATPPUCCIN MOCHA LAVENDER
+   Noto Sans Version
+   ============================================ */
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	font-family: 'Noto Sans', 'DejaVu Sans', 'Liberation Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
+	font-size: 10pt;
+	margin: 0 4px;
+	line-height: 1.5;
+}
+
+* {
+	font-family: inherit;
+	font-size: 10pt;
+}
+
+h1 {
+	color: #cdd6f4;
+	font-size: 24pt;
+	line-height: 1.3;
+}
+
+header div.subtitle {
+	font-size: 16px;
+	color: #cdd6f4;
+	font-weight: bold;
+	margin: 1em 0;
+	line-height: 1.4;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: #b4befe; /* Lavender accent */
+}
+
+a:hover {
+	color: #a6adc8;
+	text-decoration: underline;
+}
+
+hr {
+	border: 0px;
+}
+
+/* ============================================
+   BANNER & BOARDLIST
+   ============================================ */
+
+div.banner {
+	background-color: #11111b;
+	color: #cdd6f4;
+	font-weight: normal;
+}
+
+div.boardlist {
+	font-size: 10pt;
+	color: #cdd6f4;
+	padding: 2px;
+	background-color: #1e1e2e;
+}
+
+.desktop-style div.boardlist:nth-child(1) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  z-index: 30;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+  border-bottom: 0px solid;
+  background-color: #1e1e2e;
+}
+
+.desktop-style div.boardlist:nth-child(1):hover, .desktop-style div.boardlist.cb-menu:nth-child(1) {
+    background-color: #1e1e2e;
+}
+
+.desktop-style .sub {
+	background: none;
+}
+
+div.boardlist a:hover {
+	text-decoration: underline;
+}
+
+/* ============================================
+   POSTS & REPLIES
+   ============================================ */
+
+div.post.reply {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left: -4px;
+	background: #313244;
+	border: none;
+	color: #cdd6f4;
+	width: 100vw;
+	max-width: -webkit-calc(100vw - 36px)!important;
+	max-width: calc(100vw - 36px)!important;
+	line-height: 1.6;
+}
+
+div.post.reply.post-hover {
+	margin: 10px;
+	border-width: 1px;
+	border-style: none solid solid none;
+	border-color: #181825;
+	width: 50%;
+}
+
+div.post.reply.highlighted {
+	background: #313244;
+}
+
+div.post.reply div.body a {
+	color: #b4befe;
+}
+
+div.post.reply div.body a:hover {
+	color: #a6adc8;
+	text-decoration: underline;
+}
+
+.post-hover {
+	background-color: #313244 !important;
+	border: none !important;
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75) !important;
+}
+
+p.intro span.name {
+	font-size: 11pt;
+	color: #cdd6f4;
+	font-weight: bold;
+}
+
+p.intro a.email span.name {
+	color: #cdd6f4;
+}
+
+p.intro a.email:hover span.name {
+	color: #a6adc8;
+	text-decoration: underline;
+}
+
+p.intro span.subject {
+    color: #cba6f7; /* Mauve for subject */
+}
+
+p.fileinfo span.unimportant, p.fileinfo a {
+	font-size: 10pt;
+}
+
+/* ============================================
+   TABLES & PAGINATION
+   ============================================ */
+
+form table tr th {
+	background: #313244;
+	color: #cdd6f4;
+	padding: 2px 5px;
+	border: 1px solid #181825;
+}
+
+div.pages {
+	background-color: #313244;
+	border: 1px groove #1e1e2e;
+	color: #cdd6f4;
+}
+
+div.pages a.selected {
+    color: #b4befe; /* Lavender for selected */
+}
+
+div.pages a:hover {
+	text-decoration: underline;
+}
+
+/* ============================================
+   INPUTS & TEXTAREAS (GENERAL)
+   ============================================ */
+
+input[type="text"], input[type="password"], textarea, input[type="submit"], input[type="file"] {
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	font-family: inherit;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
+	color: #6c7086;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+	border-color: #b4befe;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+/* ============================================
+   QUICK REPLY FORM - CATPPUCCIN MOCHA THEME
+   Optimized & Consolidated
+   ============================================ */
+
+/* Main form container */
+#quick-reply {
+	background-color: #1e1e2e;
+	box-shadow: inset 0 0 0 1px #45475a; /* Inset shadow instead of border */
+	border-radius: 4px;
+	z-index: 100;
+	display: inline-block;
+	min-width: 320px;
+	min-height: 300px;
+}
+
+/* Draggable handle / header */
+#quick-reply th {
+	background: #313244;
+	color: #cdd6f4;
+	padding: 4px 8px;
+	border-bottom: 1px solid #181825;
+	font-weight: bold;
+}
+
+/* Close button */
+#quick-reply .close-btn {
+	color: #f38ba8;
+	font-size: 18px;
+	float: right;
+	text-decoration: none;
+	line-height: 1;
+}
+
+#quick-reply .close-btn:hover {
+	color: #eba0ac;
+}
+
+/* Handle text */
+#quick-reply .handle {
+	color: #cdd6f4;
+	font-size: 14px;
+	cursor: move;
+}
+
+/* Table */
+#quick-reply table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* Input fields - CONSOLIDATED */
+#quick-reply input[type="text"],
+#quick-reply input[type="password"] {
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	border-radius: 3px;
+	padding: 6px 8px;
+	font-family: inherit;
+	font-size: 10pt;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#quick-reply input[type="text"]:focus,
+#quick-reply input[type="password"]:focus {
+	border-color: #b4befe;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+#quick-reply input[type="text"]::placeholder,
+#quick-reply input[type="password"]::placeholder {
+	color: #6c7086;
+}
+
+/* Submit button */
+#quick-reply input[type="submit"] {
+	background-color: #b4befe;
+	color: #1e1e2e;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	font-family: inherit;
+	font-size: 10pt;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#quick-reply input[type="submit"]:hover {
+	background-color: #cba6f7;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+	transform: translateY(-1px);
+}
+
+#quick-reply input[type="submit"]:active {
+	background-color: #89b4fa;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	transform: translateY(0);
+}
+
+#quick-reply input[type="submit"]:disabled {
+	background-color: #45475a;
+	color: #6c7086;
+	cursor: not-allowed;
+	opacity: 0.6;
+	box-shadow: none;
+}
+
+/* Textarea - RESIZE HANDLE HERE */
+#quick-reply textarea {
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	border-radius: 3px;
+	padding: 8px;
+	font-family: inherit;
+	font-size: 10pt;
+	resize: both !important;
+	width: 100%;
+	box-sizing: border-box;
+	line-height: 1.5;
+	min-height: 150px;
+	display: block;
+}
+
+#quick-reply textarea:focus {
+	border-color: #b4befe;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+#quick-reply textarea::placeholder {
+	color: #6c7086;
+}
+
+/* Dropzone - SCROLLABLE WHEN CONTENT EXCEEDS HEIGHT */
+#quick-reply .dropzone-wrap {
+	background-color: #1e1e2e;
+	border: 2px dashed #45475a;
+	border-radius: 4px;
+	padding: 12px;
+	text-align: center;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 8px;
+	
+	/* Scrollable container */
+	max-height: 200px; /* Maximum height before scrolling */
+	overflow-y: auto; /* Vertical scrollbar when needed */
+	overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+#quick-reply .dropzone {
+	background-color: #313244;
+	border: 1px solid #45475a;
+	border-radius: 3px;
+	padding: 16px;
+	cursor: pointer;
+	width: 100%;
+	box-sizing: border-box;
+	min-height: 60px;
+}
+
+#quick-reply .dropzone:hover {
+	border-color: #b4befe;
+	background-color: #383a4e;
+}
+
+#quick-reply .dropzone:focus {
+	outline: none;
+	border-color: #b4befe;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+#quick-reply .dropzone:active {
+	background-color: #313244;
+	border-color: #cba6f7;
+}
+
+#quick-reply .file-hint {
+	color: #a6adc8;
+	font-size: 11pt;
+	word-wrap: break-word;
+}
+
+/* Custom Scrollbar Styling (Webkit browsers - Chrome, Edge, Safari) */
+#quick-reply .dropzone-wrap::-webkit-scrollbar {
+	width: 8px;
+}
+
+#quick-reply .dropzone-wrap::-webkit-scrollbar-track {
+	background: #1e1e2e;
+	border-radius: 4px;
+}
+
+#quick-reply .dropzone-wrap::-webkit-scrollbar-thumb {
+	background: #45475a;
+	border-radius: 4px;
+}
+
+#quick-reply .dropzone-wrap::-webkit-scrollbar-thumb:hover {
+	background: #585b70;
+}
+
+/* Firefox Scrollbar Styling */
+#quick-reply .dropzone-wrap {
+	scrollbar-width: thin;
+	scrollbar-color: #45475a #1e1e2e;
+}
+
+/* File Thumbnails Container - HORIZONTAL LAYOUT */
+.file-thumbs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	width: 100%;
+	margin-top: 8px;
+}
+
+/* File Thumbnail Container */
+.tmb-container {
+	background-color: #313244;
+	border: 1px solid #45475a;
+	border-radius: 4px;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	position: relative;
+}
+
+/* Remove Button (✖) */
+.remove-btn {
+	color: #f38ba8;
+	font-size: 14px;
+	cursor: pointer;
+	padding: 2px 6px;
+	border-radius: 3px;
+	transition: all 0.2s ease;
+	line-height: 1;
+}
+
+.remove-btn:hover {
+	background-color: rgba(243, 139, 168, 0.2);
+	color: #eba0ac;
+}
+
+/* File Thumbnail Image */
+.file-tmb {
+	width: 40px;
+	height: 40px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 3px;
+	border: 1px solid #45475a;
+	flex-shrink: 0;
+}
+
+/* Filename Text */
+.tmb-filename {
+	color: #cdd6f4;
+	font-size: 0pt;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	flex-grow: 1;
+}
