@@ -1,3 +1,11 @@
+/* ==UserStyle==
+@name           NOVACHAN CATPPUCCIN MOCHA LAVENDER EDITION
+@namespace      greyrosa/nvch-catppuccin/
+@version        1.0.0
+@description    Novachan-specific stylesheet
+@author         Grey
+==/UserStyle== */
+
 @-moz-document domain("novachan.net") {
 
 body {
@@ -16,7 +24,7 @@ body {
 
 h1 {
 	color: #cdd6f4;
-	font-size: 24pt;
+	font-size: 32pt;
 	line-height: 1.3;
 }
 
@@ -43,46 +51,429 @@ hr {
 }
 
 /* ============================================
-   BANNER & BOARDLIST
+   BANNER & BOARDLIST (STYLIZED UPDATE)
    ============================================ */
 
+/* --- BANNER: Highly Stylized with Accents --- */
 div.banner {
-	background-color: #11111b;
-	color: #cdd6f4;
-	font-weight: normal;
+    /* Gradient background for depth */
+    background: linear-gradient(90deg, #11111b 0%, #181825 100%);
+    color: #cdd6f4;
+    font-weight: normal;
+    padding: 2px 16px;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: 11pt;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
 }
 
+/* Main text in banner */
+div.banner span {
+    color: #cdd6f4;
+    font-weight: 500;
+}
+
+/* Primary links in banner (e.g., "Reply") */
+div.banner a {
+    color: #b4befe; /* Lavender */
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    background-color: rgba(180, 190, 254, 0.1); /* Subtle highlight */
+}
+
+div.banner a:hover {
+    color: #1e1e2e;
+    background-color: #b4befe;
+    box-shadow: 0 0 8px rgba(180, 190, 254, 0.4);
+}
+
+/* Secondary/Unimportant links in banner */
+div.banner a.unimportant {
+    color: #a6adc8; /* Subtext0 */
+    font-weight: 400;
+    font-size: 9.5pt;
+    margin-left: 12px;
+    background-color: transparent;
+    padding: 2px 4px;
+}
+
+div.banner a.unimportant:hover {
+    color: #cba6f7; /* Mauve on hover */
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+/* --- BOARDLIST: More Colorful & Readable --- */
 div.boardlist {
-	font-size: 10pt;
-	color: #cdd6f4;
-	padding: 2px;
-	background-color: #1e1e2e;
+    font-size: 10pt; /* Slightly larger for readability */
+    color: #cdd6f4;
+    padding: 0px 8px;
+    /* Vibrant surface background */
+    background-color: #313244; 
+    border-top: 1px solid #45475a;
+    border-bottom: 1px solid #45475a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.desktop-style div.boardlist:nth-child(1) {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-top: 0;
-  z-index: 30;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-  border-bottom: 0px solid;
-  background-color: #1e1e2e;
-}
-
-.desktop-style div.boardlist:nth-child(1):hover, .desktop-style div.boardlist.cb-menu:nth-child(1) {
-    background-color: #1e1e2e;
-}
-
-.desktop-style .sub {
-	background: none;
+/* Links in Boardlist */
+div.boardlist a {
+    color: #89b4fa; /* Blue - distinct from Lavender */
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0 4px;
+    transition: color 0.2s ease;
 }
 
 div.boardlist a:hover {
-	text-decoration: underline;
+    color: #cba6f7; /* Mauve on hover */
+    text-decoration: underline;
+    text-shadow: 0 0 4px rgba(203, 166, 247, 0.3);
 }
 
+/* Desktop-style fixed boardlist overrides */
+.desktop-style div.boardlist:nth-child(1) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    z-index: 30;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    border-bottom: 1px solid #45475a;
+    background-color: #313244; /* Match new boardlist color */
+    backdrop-filter: blur(4px); /* Optional: subtle blur effect */
+}
+
+.desktop-style div.boardlist:nth-child(1):hover, 
+.desktop-style div.boardlist.cb-menu:nth-child(1) {
+    background-color: #383a4e; /* Slightly lighter on hover */
+}
+
+.desktop-style .sub {
+    background: none;
+}
+
+/* ============================================
+   POSTING FORM STYLING
+   ============================================ */
+
+form[name="post"] {
+    background-color: #1e1e2e;
+    /* Removed outer border/inset shadow per request */
+    border-radius: 0;
+    padding: 16px;
+    margin: 16px auto; /* Centered horizontally */
+    max-width: 800px;
+    width: fit-content; /* Allows form to shrink to content */
+}
+
+form[name="post"] table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form[name="post"] table tbody tr th {
+    background: #313244;
+    color: #cdd6f4;
+    padding: 8px 12px;
+    border: 1px solid #181825;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 600;
+    width: 100px;
+}
+
+form[name="post"] table tbody tr td {
+    padding: 8px;
+    background-color: #1e1e2e;
+}
+
+/* Input Fields */
+form[name="post"] input[type="text"] {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 3px;
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form[name="post"] input[type="text"]:focus {
+    border-color: #b4befe;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+form[name="post"] input[type="text"]::placeholder {
+    color: #6c7086;
+}
+
+/* Textarea - Fixed min-width to match form default */
+form[name="post"] textarea {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 3px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    resize: both;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.5;
+    min-height: 100px;
+    min-width: 768px; /* Matches form max-width minus padding */
+}
+
+form[name="post"] textarea:focus {
+    border-color: #b4befe;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+form[name="post"] textarea::placeholder {
+    color: #6c7086;
+}
+
+/* Submit Button */
+form[name="post"] input[type="submit"] {
+    background-color: #b4befe;
+    color: #1e1e2e;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 4px;
+}
+
+form[name="post"] input[type="submit"]:hover {
+    background-color: #cba6f7;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+form[name="post"] input[type="submit"]:active {
+    background-color: #89b4fa;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+/* Subject Row Layout */
+form[name="post"] #subject {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+form[name="post"] #subject input[type="text"] {
+    flex: 1;
+}
+
+/* Checkbox & Label */
+form[name="post"] input[type="checkbox"] {
+    accent-color: #b4befe;
+    cursor: pointer;
+}
+
+form[name="post"] label {
+    color: #cdd6f4;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+form[name="post"] label:hover {
+    color: #a6adc8;
+}
+
+/* Unimportant Text */
+form[name="post"] span.unimportant {
+    color: #6c7086;
+    font-size: 9pt;
+    margin-left: 8px;
+}
+
+/* File Upload Dropzone */
+form[name="post"] .dropzone-wrap {
+    background-color: #1e1e2e;
+    border: 2px dashed #45475a;
+    border-radius: 4px;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+form[name="post"] .dropzone {
+    background-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 3px;
+    padding: 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
+}
+
+form[name="post"] .dropzone:hover {
+    border-color: #b4befe;
+    background-color: #383a4e;
+}
+
+form[name="post"] .dropzone:focus {
+    outline: none;
+    border-color: #b4befe;
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+form[name="post"] .dropzone:active {
+    background-color: #313244;
+    border-color: #cba6f7;
+}
+
+form[name="post"] .file-hint {
+    color: #a6adc8;
+    font-size: 11pt;
+    word-wrap: break-word;
+}
+
+/* File Thumbnails */
+form[name="post"] .file-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+form[name="post"] .tmb-container {
+    background-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    position: relative;
+}
+
+form[name="post"] .remove-btn {
+    color: #f38ba8;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+form[name="post"] .remove-btn:hover {
+    background-color: rgba(243, 139, 168, 0.2);
+    color: #eba0ac;
+}
+
+form[name="post"] .file-tmb {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    border: 1px solid #45475a;
+    flex-shrink: 0;
+}
+
+form[name="post"] .tmb-filename {
+    color: #cdd6f4;
+    font-size: 0pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+
+/* Custom Scrollbar for Dropzone */
+form[name="post"] .dropzone-wrap::-webkit-scrollbar {
+    width: 8px;
+}
+
+form[name="post"] .dropzone-wrap::-webkit-scrollbar-track {
+    background: #1e1e2e;
+    border-radius: 4px;
+}
+
+form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb {
+    background: #45475a;
+    border-radius: 4px;
+}
+
+form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb:hover {
+    background: #585b70;
+}
+
+form[name="post"] .dropzone-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: #45475a #1e1e2e;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    form[name="post"] table {
+        width: 100%;
+        display: block;
+    }
+    
+    form[name="post"] table tbody tr {
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    form[name="post"] table tbody tr th {
+        display: block;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    
+    form[name="post"] table tbody tr td {
+        display: block;
+        width: 100%;
+    }
+    
+    form[name="post"] #subject {
+        flex-wrap: wrap;
+    }
+    
+    form[name="post"] #subject input[type="text"] {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    form[name="post"] #subject input[type="submit"] {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+    
 /* ============================================
    POSTS & REPLIES
    ============================================ */
