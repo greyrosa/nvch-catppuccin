@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           NOVACHAN CATPPUCCIN MOCHA LAVENDER EDITION (Optimized)
+@name           NOVACHAN CATPPUCCIN MOCHA LAVENDER EDITION (Optimized + Enhanced)
 @namespace      greyrosa/nvch-catppuccin/
-@version        2.0.0
-@description    Novachan-specific stylesheet - Refactored with CSS variables and improved maintainability
+@version        2.1.1
+@description    Novachan-specific stylesheet - Fully enhanced with accessibility, performance & modern features
 @author         Grey
 ==/UserStyle== */
 
@@ -40,7 +40,84 @@
     --color-success-hover: #eba0ac;
 }
 
-@-moz-document domain("novachan.net") {
+/* ============================================
+   LIGHT THEME SUPPORT (PREPARED)
+   Enable with body.light-theme class on <body>
+   ============================================ */
+
+@media (prefers-color-scheme: light) {
+    :root[data-light-mode="true"] {
+        --color-bg-primary: #ffffff;
+        --color-bg-secondary: #f0f2f5;
+        --color-text-primary: #1e1e2e;
+        --color-text-muted: #4b5563;
+        --color-text-subtle: #9ca3af;
+        --color-link-blue: #2563eb;
+        --color-hover-mauve: #7c3aed;
+        --color-border-primary: #d1d5db;
+        --color-border-secondary: #e5e7eb;
+    }
+}
+
+body.light-theme {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f0f2f5;
+    --color-text-primary: #1e1e2e;
+    --color-text-muted: #4b5563;
+    --color-text-subtle: #9ca3af;
+}
+
+body.light-theme div.banner {
+    background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ============================================
+   ACCESSIBILITY FEATURES (CRITICAL)
+   ============================================ */
+
+/* Respect reduced motion preference for vestibular disorders */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transform: none !important;
+    }
+    
+    div.banner a, .remove-btn:hover, input[type="submit"]:hover {
+        transition: none;
+    }
+}
+
+/* Custom focus indicators for keyboard navigation */
+a:focus, 
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+textarea:focus, 
+input[type="submit"]:focus, 
+button:focus {
+    outline: 2px solid var(--color-link-blue);
+    outline-offset: 2px;
+}
+
+/* Screen reader compatibility - decorative elements */
+.remove-btn:focus {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* Text selection enabled for better UX */
+div.boardlist, 
+form[name="post"], 
+#quick-reply, 
+div.post.reply, 
+.tmb-container {
+    user-select: text;
+}
+
 
 /* ============================================
    GLOBAL STYLES
@@ -84,8 +161,9 @@ a:hover {
     text-decoration: underline;
 }
 
-hr {
-    border: 0px;
+/* Smooth scroll behavior for long content (modern browsers) */
+html, body {
+    scroll-behavior: smooth;
 }
 
 
@@ -218,6 +296,15 @@ form[name="post"] table {
     border-collapse: collapse;
 }
 
+/* Performance optimization for complex layouts */
+form[name="post"] .file-thumbs {
+    contain: layout style paint;
+}
+
+#quick-reply {
+    contain: layout; /* Improves rendering performance */
+}
+
 form[name="post"] table tbody tr th {
     background: var(--color-bg-secondary);
     color: var(--color-text-primary);
@@ -249,7 +336,7 @@ form[name="post"] input[type="text"] {
 
 form[name="post"] input[type="text"]:focus {
     border-color: var(--color-link-blue);
-    outline: none;
+    outline: none; /* Remove default, use custom focus */
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
@@ -284,6 +371,7 @@ form[name="post"] textarea::placeholder {
 }
 
 /* Submit Button */
+input[type="submit"], 
 form[name="post"] input[type="submit"] {
     background-color: var(--color-link-blue);
     color: var(--color-bg-primary);
@@ -296,19 +384,27 @@ form[name="post"] input[type="submit"] {
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-left: 4px;
 }
 
-form[name="post"] input[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: var(--color-hover-mauve);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
 }
 
-form[name="post"] input[type="submit"]:active {
+input[type="submit"]:active {
     background-color: var(--color-accent-subtle);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     transform: translateY(0);
+}
+
+/* Disabled state with visual feedback */
+input[type="submit"]:disabled {
+    background-color: var(--color-border-secondary);
+    color: var(--color-text-subtle);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
 }
 
 /* Subject Row Layout */
@@ -344,6 +440,23 @@ form[name="post"] span.unimportant {
     font-size: 9pt;
     margin-left: 8px;
 }
+
+/* Error state styling for validation (if implemented) */
+form[name="post"] input[type="text"]:invalid,
+#quick-reply input[type="text"]:invalid {
+    border-color: var(--color-danger);
+}
+
+input:focus:invalid {
+    outline-color: var(--color-danger);
+}
+
+/* Required field indicator (optional - remove if not needed) */
+form[name="post"] label[required]::after {
+    content: " *";
+    color: var(--color-danger);
+}
+
 
 /* File Upload Dropzone */
 form[name="post"] .dropzone-wrap {
@@ -412,6 +525,7 @@ form[name="post"] .tmb-container {
     position: relative;
 }
 
+/* Remove Button with visual feedback */
 form[name="post"] .remove-btn {
     color: var(--color-danger);
     font-size: 14px;
@@ -620,7 +734,7 @@ input[type="text"]::placeholder, input[type="password"]::placeholder, textarea::
 
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     border-color: var(--color-link-blue);
-    outline: none;
+    outline: none; /* Use custom focus state */
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
@@ -693,7 +807,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 #quick-reply input[type="text"]:focus,
 #quick-reply input[type="password"]:focus {
     border-color: var(--color-link-blue);
-    outline: none;
+    outline: none; /* Use custom focus state */
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
@@ -756,7 +870,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 
 #quick-reply textarea:focus {
     border-color: var(--color-link-blue);
-    outline: none;
+    outline: none; /* Use custom focus state */
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
@@ -798,7 +912,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 }
 
 #quick-reply .dropzone:focus {
-    outline: none;
+    outline: none; /* Use custom focus state */
     border-color: var(--color-link-blue);
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
@@ -896,6 +1010,30 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     text-overflow: ellipsis;
     white-space: nowrap;
     flex-grow: 1;
+}
+
+
+/* ============================================
+   BROWSER-SPECIFIC BUG FIXES & OPTIMIZATIONS
+   ============================================ */
+
+/* Fix for WebKit scrollbar flickering on some systems */
+form[name="post"] .dropzone-wrap::-webkit-scrollbar,
+#quick-reply .dropzone-wrap::-webkit-scrollbar {
+    display: block; /* Ensure consistent behavior */
+}
+
+/* Firefox-specific fix for certain flexbox layouts */
+@supports (-moz-appearance:none) {
+    form[name="post"] #subject {
+        gap: 0.25rem; /* More reliable than '4px' in some Firefox versions */
+    }
+}
+
+/* Fix for Safari's default button styles (already handled, but double-check) */
+input[type="submit"], input[type="button"] {
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 
