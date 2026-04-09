@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NOVACHAN CATPPUCCIN MOCHA LAVENDER EDITION (Optimized + Enhanced)
 @namespace      greyrosa/nvch-catppuccin/
-@version        2.1.1
+@version        2.1.2
 @description    Novachan-specific stylesheet - Fully enhanced with accessibility, performance & modern features
 @author         Grey
 ==/UserStyle== */
@@ -1035,10 +1035,7 @@ input[type="submit"], input[type="button"] {
     -webkit-appearance: none;
     appearance: none;
 }
-
-
 /* ============================================
    END OF STYLE SHEET
    ============================================ */
-
 } /* @-moz-document domain("novachan.net") */
