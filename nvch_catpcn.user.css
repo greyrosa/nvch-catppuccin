@@ -1035,7 +1035,10 @@ input[type="submit"], input[type="button"] {
     -webkit-appearance: none;
     appearance: none;
 }
+
+
 /* ============================================
    END OF STYLE SHEET
    ============================================ */
-/* @-moz-document domain("novachan.net") */
+
+} /* @-moz-document domain("novachan.net") */
