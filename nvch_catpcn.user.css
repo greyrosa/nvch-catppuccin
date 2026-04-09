@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           NOVACHAN CATPPUCCIN MOCHA LAVENDER EDITION (Optimized + Enhanced)
+@name           Novachan Catppuccin
 @namespace      greyrosa/nvch-catppuccin/
-@version        3.0.2
-@description    Novachan-specific stylesheet - Fully enhanced with accessibility, performance & modern features
+@version        2.1.4
+@description    Novachan-specific stylesheet - Reverted and fixed
 @author         Grey
 ==/UserStyle== */
 
@@ -12,32 +12,39 @@
    ============================================ */
 
 :root {
+    /* Backgrounds */
     --color-bg-primary: #1e1e2e;
     --color-bg-secondary: #313244;
+    
+    /* Text Colors */
     --color-text-primary: #cdd6f4;
     --color-text-muted: #a6adc8;
     --color-text-subtle: #6c7086;
-    --color-link-blue: #b4befe;
-    --color-hover-mauve: #cba6f7;
-    --color-accent-subtle: #89b4fa;
+    
+    /* Accents & Links */
+    --color-link-blue: #b4befe;      /* Lavender - primary links */
+    --color-hover-mauve: #cba6f7;    /* Mauve - hover states */
+    --color-accent-subtle: #89b4fa;  /* Blue - boardlist links */
+    
+    /* Borders & Dividers */
     --color-border-primary: #181825;
     --color-border-secondary: #45475a;
+    
+    /* Shadows */
     --shadow-subtle: rgba(0, 0, 0, 0.1);
     --shadow-medium: rgba(0, 0, 0, 0.25);
     --shadow-strong: rgba(0, 0, 0, 0.3);
-    --color-danger: #f38ba8;
+    
+    /* Special Colors */
+    --color-danger: #f38ba8;         /* Red - remove buttons */
     --color-success-hover: #eba0ac;
 }
 
 @-moz-document domain("novachan.net") {
-    
+
 /* ============================================
    GLOBAL STYLES
    ============================================ */
-
-html, body {
-    scroll-behavior: smooth;
-}
 
 body {
     background-color: var(--color-bg-primary);
@@ -69,7 +76,7 @@ header div.subtitle {
 
 a, a:visited {
     text-decoration: none;
-    color: var(--color-link-blue);
+    color: var(--color-link-blue); /* Lavender accent */
 }
 
 a:hover {
@@ -77,47 +84,8 @@ a:hover {
     text-decoration: underline;
 }
 
-
-/* ============================================
-   ACCESSIBILITY FEATURES (CRITICAL)
-   ============================================ */
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        transform: none !important;
-    }
-    
-    div.banner a, .remove-btn:hover, input[type="submit"]:hover {
-        transition: none;
-    }
-}
-
-/* Custom focus indicators */
-a:focus, 
-input[type="text"]:focus, 
-textarea:focus, 
-input[type="submit"]:focus, 
-button:focus {
-    outline: 2px solid var(--color-link-blue);
-    outline-offset: 2px;
-}
-
-.remove-btn:focus {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-}
-
-/* Text selection */
-div.boardlist, 
-form[name="post"], 
-#quick-reply, 
-div.post.reply, 
-.tmb-container {
-    user-select: text;
+hr {
+    border: 0px;
 }
 
 
@@ -125,7 +93,9 @@ div.post.reply,
    BANNER & BOARDLIST (STYLIZED UPDATE)
    ============================================ */
 
+/* --- BANNER: Highly Stylized with Accents --- */
 div.banner {
+    /* Gradient background for depth */
     background: linear-gradient(90deg, #11111b 0%, var(--color-bg-primary) 100%);
     color: var(--color-text-primary);
     font-weight: normal;
@@ -137,20 +107,22 @@ div.banner {
     letter-spacing: 0.3px;
 }
 
+/* Main text in banner */
 div.banner span {
     color: var(--color-text-primary);
     font-weight: 500;
 }
 
+/* Primary links in banner (e.g., "Reply") */
 div.banner a {
-    color: var(--color-link-blue);
+    color: var(--color-link-blue); /* Lavender */
     font-weight: 600;
     text-decoration: none;
     margin-left: 10px;
     padding: 2px 6px;
     border-radius: 4px;
     transition: all 0.2s ease;
-    background-color: rgba(180, 190, 254, 0.1);
+    background-color: rgba(180, 190, 254, 0.1); /* Subtle highlight */
 }
 
 div.banner a:hover {
@@ -159,8 +131,9 @@ div.banner a:hover {
     box-shadow: 0 0 8px rgba(180, 190, 254, 0.4);
 }
 
+/* Secondary/Unimportant links in banner */
 div.banner a.unimportant {
-    color: var(--color-text-muted);
+    color: var(--color-text-muted); /* Subtext0 */
     font-weight: 400;
     font-size: 9.5pt;
     margin-left: 12px;
@@ -169,7 +142,7 @@ div.banner a.unimportant {
 }
 
 div.banner a.unimportant:hover {
-    color: var(--color-hover-mauve);
+    color: var(--color-hover-mauve); /* Mauve on hover */
     text-decoration: underline;
     background-color: transparent;
 }
@@ -177,17 +150,19 @@ div.banner a.unimportant:hover {
 
 /* --- BOARDLIST: More Colorful & Readable --- */
 div.boardlist {
-    font-size: 10pt;
+    font-size: 10pt; /* Slightly larger for readability */
     color: var(--color-text-primary);
     padding: 0px 8px;
+    /* Vibrant surface background */
     background-color: var(--color-bg-secondary); 
     border-top: 1px solid var(--color-border-secondary);
     border-bottom: 1px solid var(--color-border-secondary);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Links in Boardlist */
 div.boardlist a {
-    color: var(--color-accent-subtle);
+    color: var(--color-accent-subtle); /* Blue - distinct from Lavender */
     font-weight: 500;
     text-decoration: none;
     margin: 0 4px;
@@ -195,11 +170,12 @@ div.boardlist a {
 }
 
 div.boardlist a:hover {
-    color: var(--color-hover-mauve);
+    color: var(--color-hover-mauve); /* Mauve on hover */
     text-decoration: underline;
     text-shadow: 0 0 4px rgba(203, 166, 247, 0.3);
 }
 
+/* Desktop-style fixed boardlist overrides */
 .desktop-style div.boardlist:nth-child(1) {
     position: fixed;
     top: 0;
@@ -207,15 +183,15 @@ div.boardlist a:hover {
     right: 0;
     margin-top: 0;
     z-index: 30;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* Stronger shadow */
     border-bottom: 1px solid var(--color-border-secondary);
-    background-color: var(--color-bg-secondary); 
-    backdrop-filter: blur(4px);
+    background-color: var(--color-bg-secondary); /* Match new boardlist color */
+    backdrop-filter: blur(4px); /* Optional: subtle blur effect */
 }
 
 .desktop-style div.boardlist:nth-child(1):hover, 
 .desktop-style div.boardlist.cb-menu:nth-child(1) {
-    background-color: #383a4e;
+    background-color: #383a4e; /* Slightly lighter on hover */
 }
 
 .desktop-style .sub {
@@ -229,21 +205,17 @@ div.boardlist a:hover {
 
 form[name="post"] {
     background-color: var(--color-bg-primary);
+    /* Removed outer border/inset shadow per request */
     border-radius: 0;
     padding: 16px;
-    margin: 16px auto; 
+    margin: 16px auto; /* Centered horizontally */
     max-width: 800px;
-    width: fit-content;
+    width: fit-content; /* Allows form to shrink to content */
 }
 
 form[name="post"] table {
     width: 100%;
     border-collapse: collapse;
-}
-
-/* Performance optimization */
-form[name="post"] .file-thumbs, #quick-reply {
-    contain: layout style paint;
 }
 
 form[name="post"] table tbody tr th {
@@ -263,8 +235,7 @@ form[name="post"] table tbody tr td {
 }
 
 /* Input Fields */
-form[name="post"] input[type="text"], form[name="post"] textarea, 
-#quick-reply input[type="text"], #quick-reply textarea {
+form[name="post"] input[type="text"] {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
     border: 1px solid var(--color-border-secondary);
@@ -276,35 +247,44 @@ form[name="post"] input[type="text"], form[name="post"] textarea,
     box-sizing: border-box;
 }
 
-form[name="post"] input[type="text"]:focus, 
-#quick-reply input[type="text"]:focus {
+form[name="post"] input[type="text"]:focus {
     border-color: var(--color-link-blue);
     outline: none;
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
-form[name="post"] input[type="text"]::placeholder, 
-#quick-reply input[type="text"]::placeholder {
+form[name="post"] input[type="text"]::placeholder {
     color: var(--color-text-subtle);
 }
 
-/* Textarea */
+/* Textarea - Fixed min-width to match form default */
 form[name="post"] textarea {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 3px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    resize: both;
+    width: 100%;
+    box-sizing: border-box;
     line-height: 1.5;
     min-height: 100px;
 }
 
-#quick-reply textarea {
-    resize: both;
-    min-height: 150px;
-    display: block;
+form[name="post"] textarea:focus {
+    border-color: var(--color-link-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
+form[name="post"] textarea::placeholder {
+    color: var(--color-text-subtle);
+}
 
 /* Submit Button */
-input[type="submit"], 
-form[name="post"] input[type="submit"], 
-#quick-reply input[type="submit"] {
+form[name="post"] input[type="submit"] {
     background-color: var(--color-link-blue);
     color: var(--color-bg-primary);
     border: none;
@@ -316,35 +296,22 @@ form[name="post"] input[type="submit"],
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 4px;
 }
 
-input[type="submit"]:hover {
+form[name="post"] input[type="submit"]:hover {
     background-color: var(--color-hover-mauve);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
 }
 
-input[type="submit"]:active {
+form[name="post"] input[type="submit"]:active {
     background-color: var(--color-accent-subtle);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     transform: translateY(0);
 }
 
-input[type="submit"]:disabled {
-    background-color: var(--color-border-secondary);
-    color: var(--color-text-subtle);
-    cursor: not-allowed;
-    opacity: 0.6;
-    box-shadow: none;
-}
-
-
 /* Subject Row Layout */
-form[name="post"] #subject, #quick-reply table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
 form[name="post"] #subject {
     display: flex;
     align-items: center;
@@ -355,24 +322,21 @@ form[name="post"] #subject input[type="text"] {
     flex: 1;
 }
 
-
 /* Checkbox & Label */
 form[name="post"] input[type="checkbox"] {
     accent-color: var(--color-link-blue);
     cursor: pointer;
 }
 
-form[name="post"] label, 
-#quick-reply label {
+form[name="post"] label {
     color: var(--color-text-primary);
     font-size: 10pt;
     cursor: pointer;
 }
 
-form[name="post"] label:hover, #quick-reply label:hover {
+form[name="post"] label:hover {
     color: var(--color-text-muted);
 }
-
 
 /* Unimportant Text */
 form[name="post"] span.unimportant {
@@ -381,19 +345,8 @@ form[name="post"] span.unimportant {
     margin-left: 8px;
 }
 
-/* Error state styling */
-form[name="post"] input[type="text"]:invalid,
-#quick-reply input[type="text"]:invalid {
-    border-color: var(--color-danger);
-}
-
-input:focus:invalid {
-    outline-color: var(--color-danger);
-}
-
-
 /* File Upload Dropzone */
-form[name="post"] .dropzone-wrap, #quick-reply .dropzone-wrap {
+form[name="post"] .dropzone-wrap {
     background-color: var(--color-bg-primary);
     border: 2px dashed var(--color-border-secondary);
     border-radius: 4px;
@@ -401,46 +354,46 @@ form[name="post"] .dropzone-wrap, #quick-reply .dropzone-wrap {
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-}
-
-form[name="post"] .dropzone-wrap, #quick-reply .dropzone-wrap {
     max-height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-form[name="post"] .dropzone-wrap::-webkit-scrollbar,
-#quick-reply .dropzone-wrap::-webkit-scrollbar {
-    width: 8px;
+form[name="post"] .dropzone {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 3px;
+    padding: 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
 }
 
-form[name="post"] .dropzone-wrap::-webkit-scrollbar-track,
-#quick-reply .dropzone-wrap::-webkit-scrollbar-track {
-    background: var(--color-bg-primary);
-    border-radius: 4px;
+form[name="post"] .dropzone:hover {
+    border-color: var(--color-link-blue);
+    background-color: #383a4e;
 }
 
-form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb,
-#quick-reply .dropzone-wrap::-webkit-scrollbar-thumb {
-    background: var(--color-border-secondary);
-    border-radius: 4px;
+form[name="post"] .dropzone:focus {
+    outline: none;
+    border-color: var(--color-link-blue);
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
-form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb:hover,
-#quick-reply .dropzone-wrap::-webkit-scrollbar-thumb:hover {
-    background: #585b70;
+form[name="post"] .dropzone:active {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-hover-mauve);
 }
 
-
-/* Firefox Scrollbar Styling */
-form[name="post"] .dropzone-wrap, #quick-reply .dropzone-wrap {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-border-secondary) var(--color-bg-primary);
+form[name="post"] .file-hint {
+    color: var(--color-text-muted);
+    font-size: 11pt;
+    word-wrap: break-word;
 }
-
 
 /* File Thumbnails */
-form[name="post"] .file-thumbs, .file-thumbs {
+form[name="post"] .file-thumbs {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
@@ -448,7 +401,7 @@ form[name="post"] .file-thumbs, .file-thumbs {
     margin-top: 8px;
 }
 
-form[name="post"] .tmb-container, .tmb-container {
+form[name="post"] .tmb-container {
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border-secondary);
     border-radius: 4px;
@@ -459,7 +412,7 @@ form[name="post"] .tmb-container, .tmb-container {
     position: relative;
 }
 
-form[name="post"] .remove-btn, .remove-btn {
+form[name="post"] .remove-btn {
     color: var(--color-danger);
     font-size: 14px;
     cursor: pointer;
@@ -469,12 +422,12 @@ form[name="post"] .remove-btn, .remove-btn {
     line-height: 1;
 }
 
-form[name="post"] .remove-btn:hover, .remove-btn:hover {
+form[name="post"] .remove-btn:hover {
     background-color: rgba(243, 139, 168, 0.2);
     color: var(--color-success-hover);
 }
 
-form[name="post"] .file-tmb, .file-tmb {
+form[name="post"] .file-tmb {
     width: 40px;
     height: 40px;
     background-size: cover;
@@ -485,7 +438,7 @@ form[name="post"] .file-tmb, .file-tmb {
     flex-shrink: 0;
 }
 
-form[name="post"] .tmb-filename, .tmb-filename {
+form[name="post"] .tmb-filename {
     color: var(--color-text-primary);
     font-size: 0pt;
     overflow: hidden;
@@ -494,32 +447,48 @@ form[name="post"] .tmb-filename, .tmb-filename {
     flex-grow: 1;
 }
 
+/* Custom Scrollbar for Dropzone */
+form[name="post"] .dropzone-wrap::-webkit-scrollbar {
+    width: 8px;
+}
+
+form[name="post"] .dropzone-wrap::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+    border-radius: 4px;
+}
+
+form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb {
+    background: var(--color-border-secondary);
+    border-radius: 4px;
+}
+
+form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb:hover {
+    background: #585b70;
+}
+
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
 
 @media (max-width: 768px) {
-    form[name="post"] table, #quick-reply table {
+    form[name="post"] table {
         width: 100%;
         display: block;
     }
     
-    form[name="post"] table tbody tr, 
-    #quick-reply table tbody tr {
+    form[name="post"] table tbody tr {
         display: block;
         margin-bottom: 8px;
     }
     
-    form[name="post"] table tbody tr th, 
-    #quick-reply table tbody tr th {
+    form[name="post"] table tbody tr th {
         display: block;
         width: 100%;
         margin-bottom: 4px;
     }
     
-    form[name="post"] table tbody tr td, 
-    #quick-reply table tbody tr td {
+    form[name="post"] table tbody tr td {
         display: block;
         width: 100%;
     }
@@ -528,15 +497,13 @@ form[name="post"] .tmb-filename, .tmb-filename {
         flex-wrap: wrap;
     }
     
-    form[name="post"] #subject input[type="text"],
-    #quick-reply #subject input[type="text"] {
+    form[name="post"] #subject input[type="text"] {
         width: 100%;
         max-width: 100%;
         margin-bottom: 8px;
     }
     
-    form[name="post"] #subject input[type="submit"],
-    #quick-reply #subject input[type="submit"] {
+    form[name="post"] #subject input[type="submit"] {
         width: 100%;
         margin-left: 0;
     }
@@ -554,6 +521,7 @@ div.post.reply {
     background: var(--color-bg-secondary);
     border: none;
     color: var(--color-text-primary);
+    /* Width handling without !important */
     width: calc(100vw - 36px);
 }
 
@@ -578,11 +546,11 @@ div.post.reply div.body a:hover {
     text-decoration: underline;
 }
 
-/* Hover effect */
+/* Hover effect - consolidated box-shadow */
 .post-hover {
     background-color: var(--color-bg-secondary);
     border: none;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75); /* Single declaration */
 }
 
 p.intro span.name {
@@ -601,7 +569,7 @@ p.intro a.email:hover span.name {
 }
 
 p.intro span.subject {
-    color: var(--color-hover-mauve);
+    color: var(--color-hover-mauve); /* Mauve for subject */
 }
 
 p.fileinfo span.unimportant, p.fileinfo a {
@@ -627,7 +595,7 @@ div.pages {
 }
 
 div.pages a.selected {
-    color: var(--color-link-blue);
+    color: var(--color-link-blue); /* Lavender for selected */
 }
 
 div.pages a:hover {
@@ -662,9 +630,10 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
    Optimized & Consolidated
    ============================================ */
 
+/* Main form container */
 #quick-reply {
     background-color: var(--color-bg-primary);
-    box-shadow: inset 0 0 0 1px var(--color-border-secondary);
+    box-shadow: inset 0 0 0 1px var(--color-border-secondary); /* Inset shadow instead of border */
     border-radius: 4px;
     z-index: 100;
     display: inline-block;
@@ -672,6 +641,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     min-height: 300px;
 }
 
+/* Draggable handle / header */
 #quick-reply th {
     background: var(--color-bg-secondary);
     color: var(--color-text-primary);
@@ -680,6 +650,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     font-weight: bold;
 }
 
+/* Close button */
 #quick-reply .close-btn {
     color: var(--color-danger);
     font-size: 18px;
@@ -692,31 +663,239 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     color: var(--color-success-hover);
 }
 
+/* Handle text */
 #quick-reply .handle {
     color: var(--color-text-primary);
     font-size: 14px;
     cursor: move;
 }
 
+/* Table */
+#quick-reply table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-/* ============================================
-   BROWSER-SPECIFIC BUG FIXES & OPTIMIZATIONS
-   ============================================ */
+/* Input fields - CONSOLIDATED */
+#quick-reply input[type="text"],
+#quick-reply input[type="password"] {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 3px;
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-form[name="post"] .dropzone-wrap::-webkit-scrollbar,
-#quick-reply .dropzone-wrap::-webkit-scrollbar {
+#quick-reply input[type="text"]:focus,
+#quick-reply input[type="password"]:focus {
+    border-color: var(--color-link-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+#quick-reply input[type="text"]::placeholder,
+#quick-reply input[type="password"]::placeholder {
+    color: var(--color-text-subtle);
+}
+
+/* Submit button */
+#quick-reply input[type="submit"] {
+    background-color: var(--color-link-blue);
+    color: var(--color-bg-primary);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#quick-reply input[type="submit"]:hover {
+    background-color: var(--color-hover-mauve);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+#quick-reply input[type="submit"]:active {
+    background-color: var(--color-accent-subtle);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+#quick-reply input[type="submit"]:disabled {
+    background-color: var(--color-border-secondary);
+    color: var(--color-text-subtle);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+/* Textarea - RESIZE HANDLE HERE */
+#quick-reply textarea {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 3px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 10pt;
+    resize: both;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.5;
+    min-height: 150px;
     display: block;
 }
 
-@supports (-moz-appearance:none) {
-    form[name="post"] #subject {
-        gap: 0.25rem;
-    }
+#quick-reply textarea:focus {
+    border-color: var(--color-link-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
-input[type="submit"], input[type="button"] {
-    -webkit-appearance: none;
-    appearance: none;
+#quick-reply textarea::placeholder {
+    color: var(--color-text-subtle);
+}
+
+/* Dropzone - SCROLLABLE WHEN CONTENT EXCEEDS HEIGHT */
+#quick-reply .dropzone-wrap {
+    background-color: var(--color-bg-primary);
+    border: 2px dashed var(--color-border-secondary);
+    border-radius: 4px;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+
+    /* Scrollable container */
+    max-height: 200px; /* Maximum height before scrolling */
+    overflow-y: auto; /* Vertical scrollbar when needed */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+#quick-reply .dropzone {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 3px;
+    padding: 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
+}
+
+#quick-reply .dropzone:hover {
+    border-color: var(--color-link-blue);
+    background-color: #383a4e;
+}
+
+#quick-reply .dropzone:focus {
+    outline: none;
+    border-color: var(--color-link-blue);
+    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+}
+
+#quick-reply .dropzone:active {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-hover-mauve);
+}
+
+#quick-reply .file-hint {
+    color: var(--color-text-muted);
+    font-size: 11pt;
+    word-wrap: break-word;
+}
+
+/* Custom Scrollbar Styling (Webkit browsers - Chrome, Edge, Safari) */
+#quick-reply .dropzone-wrap::-webkit-scrollbar {
+    width: 8px;
+}
+
+#quick-reply .dropzone-wrap::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+    border-radius: 4px;
+}
+
+#quick-reply .dropzone-wrap::-webkit-scrollbar-thumb {
+    background: var(--color-border-secondary);
+    border-radius: 4px;
+}
+
+#quick-reply .dropzone-wrap::-webkit-scrollbar-thumb:hover {
+    background: #585b70;
+}
+
+/* Firefox Scrollbar Styling */
+#quick-reply .dropzone-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-secondary) var(--color-bg-primary);
+}
+
+
+/* ============================================
+   FILE THUMBNAILS (Shared Styles)
+   ============================================ */
+
+.file-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.tmb-container {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    position: relative;
+}
+
+.remove-btn {
+    color: var(--color-danger);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.remove-btn:hover {
+    background-color: rgba(243, 139, 168, 0.2);
+    color: var(--color-success-hover);
+}
+
+.file-tmb {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    border: 1px solid var(--color-border-secondary);
+    flex-shrink: 0;
+}
+
+.tmb-filename {
+    color: var(--color-text-primary);
+    font-size: 0pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
 }
 
 
