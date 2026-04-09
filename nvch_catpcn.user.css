@@ -1,93 +1,54 @@
 /* ==UserStyle==
 @name           Novachan Catppuccin
 @namespace      greyrosa/nvch-catppuccin/
-@version        2.1.5
-@description    Novachan-specific stylesheet - Added post hover
+@version        2.1.6
+@description    Novachan-specific stylesheet
 @author         Grey
 ==/UserStyle== */
 
-/* ============================================
-   COLOR PALETTE (CSS Custom Properties)
-   Using Catppuccin Mocha/Lavender theme colors
-   ============================================ */
-
-:root {
-    /* Backgrounds */
-    --color-bg-primary: #1e1e2e;
-    --color-bg-secondary: #313244;
-    
-    /* Text Colors */
-    --color-text-primary: #cdd6f4;
-    --color-text-muted: #a6adc8;
-    --color-text-subtle: #6c7086;
-    
-    /* Accents & Links */
-    --color-link-blue: #b4befe;      /* Lavender - primary links */
-    --color-hover-mauve: #cba6f7;    /* Mauve - hover states */
-    --color-accent-subtle: #89b4fa;  /* Blue - boardlist links */
-    
-    /* Borders & Dividers */
-    --color-border-primary: #181825;
-    --color-border-secondary: #45475a;
-    
-    /* Shadows */
-    --shadow-subtle: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.25);
-    --shadow-strong: rgba(0, 0, 0, 0.3);
-    
-    /* Special Colors */
-    --color-danger: #f38ba8;         /* Red - remove buttons */
-    --color-success-hover: #eba0ac;
-}
-
 @-moz-document domain("novachan.net") {
 
-/* ============================================
-   GLOBAL STYLES
-   ============================================ */
-
 body {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    font-family: 'Noto Sans', 'DejaVu Sans', 'Liberation Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
-    font-size: 10pt;
-    margin: 0 4px;
-    line-height: 1.5;
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	font-family: 'Noto Sans', 'DejaVu Sans', 'Liberation Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
+	font-size: 10pt;
+	margin: 0 4px;
+	line-height: 1.5;
 }
 
 * {
-    font-family: inherit;
-    font-size: 10pt;
+	font-family: inherit;
+	font-size: 10pt;
 }
 
 h1 {
-    color: var(--color-text-primary);
-    font-size: 32pt;
-    line-height: 1.3;
+	color: #cdd6f4;
+	font-size: 32pt;
+	line-height: 1.3;
 }
 
 header div.subtitle {
-    font-size: 16px;
-    color: var(--color-text-primary);
-    font-weight: bold;
-    margin: 1em 0;
-    line-height: 1.4;
+	font-size: 16px;
+	color: #cdd6f4;
+	font-weight: bold;
+	margin: 1em 0;
+	line-height: 1.4;
 }
 
 a, a:visited {
-    text-decoration: none;
-    color: var(--color-link-blue); /* Lavender accent */
+	text-decoration: none;
+	color: #b4befe; /* Lavender accent */
 }
 
 a:hover {
-    color: var(--color-hover-mauve);
-    text-decoration: underline;
+	color: #a6adc8;
+	text-decoration: underline;
 }
 
 hr {
-    border: 0px;
+	border: 0px;
 }
-
 
 /* ============================================
    BANNER & BOARDLIST (STYLIZED UPDATE)
@@ -96,8 +57,8 @@ hr {
 /* --- BANNER: Highly Stylized with Accents --- */
 div.banner {
     /* Gradient background for depth */
-    background: linear-gradient(90deg, #11111b 0%, var(--color-bg-primary) 100%);
-    color: var(--color-text-primary);
+    background: linear-gradient(90deg, #11111b 0%, #181825 100%);
+    color: #cdd6f4;
     font-weight: normal;
     padding: 2px 16px;
     margin: 0;
@@ -109,13 +70,13 @@ div.banner {
 
 /* Main text in banner */
 div.banner span {
-    color: var(--color-text-primary);
+    color: #cdd6f4;
     font-weight: 500;
 }
 
 /* Primary links in banner (e.g., "Reply") */
 div.banner a {
-    color: var(--color-link-blue); /* Lavender */
+    color: #b4befe; /* Lavender */
     font-weight: 600;
     text-decoration: none;
     margin-left: 10px;
@@ -126,14 +87,14 @@ div.banner a {
 }
 
 div.banner a:hover {
-    color: var(--color-bg-primary);
-    background-color: var(--color-link-blue);
+    color: #1e1e2e;
+    background-color: #b4befe;
     box-shadow: 0 0 8px rgba(180, 190, 254, 0.4);
 }
 
 /* Secondary/Unimportant links in banner */
 div.banner a.unimportant {
-    color: var(--color-text-muted); /* Subtext0 */
+    color: #a6adc8; /* Subtext0 */
     font-weight: 400;
     font-size: 9.5pt;
     margin-left: 12px;
@@ -142,27 +103,26 @@ div.banner a.unimportant {
 }
 
 div.banner a.unimportant:hover {
-    color: var(--color-hover-mauve); /* Mauve on hover */
+    color: #cba6f7; /* Mauve on hover */
     text-decoration: underline;
     background-color: transparent;
 }
 
-
 /* --- BOARDLIST: More Colorful & Readable --- */
 div.boardlist {
     font-size: 10pt; /* Slightly larger for readability */
-    color: var(--color-text-primary);
+    color: #cdd6f4;
     padding: 0px 8px;
     /* Vibrant surface background */
-    background-color: var(--color-bg-secondary); 
-    border-top: 1px solid var(--color-border-secondary);
-    border-bottom: 1px solid var(--color-border-secondary);
+    background-color: #313244; 
+    border-top: 1px solid #45475a;
+    border-bottom: 1px solid #45475a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Links in Boardlist */
 div.boardlist a {
-    color: var(--color-accent-subtle); /* Blue - distinct from Lavender */
+    color: #89b4fa; /* Blue - distinct from Lavender */
     font-weight: 500;
     text-decoration: none;
     margin: 0 4px;
@@ -170,7 +130,7 @@ div.boardlist a {
 }
 
 div.boardlist a:hover {
-    color: var(--color-hover-mauve); /* Mauve on hover */
+    color: #cba6f7; /* Mauve on hover */
     text-decoration: underline;
     text-shadow: 0 0 4px rgba(203, 166, 247, 0.3);
 }
@@ -184,8 +144,8 @@ div.boardlist a:hover {
     margin-top: 0;
     z-index: 30;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* Stronger shadow */
-    border-bottom: 1px solid var(--color-border-secondary);
-    background-color: var(--color-bg-secondary); /* Match new boardlist color */
+    border-bottom: 1px solid #45475a;
+    background-color: #313244; /* Match new boardlist color */
     backdrop-filter: blur(4px); /* Optional: subtle blur effect */
 }
 
@@ -198,13 +158,12 @@ div.boardlist a:hover {
     background: none;
 }
 
-
 /* ============================================
    POSTING FORM STYLING
    ============================================ */
 
 form[name="post"] {
-    background-color: var(--color-bg-primary);
+    background-color: #1e1e2e;
     /* Removed outer border/inset shadow per request */
     border-radius: 0;
     padding: 16px;
@@ -219,10 +178,10 @@ form[name="post"] table {
 }
 
 form[name="post"] table tbody tr th {
-    background: var(--color-bg-secondary);
-    color: var(--color-text-primary);
+    background: #313244;
+    color: #cdd6f4;
     padding: 8px 12px;
-    border: 1px solid var(--color-border-primary);
+    border: 1px solid #181825;
     text-align: left;
     vertical-align: middle;
     font-weight: 600;
@@ -231,14 +190,14 @@ form[name="post"] table tbody tr th {
 
 form[name="post"] table tbody tr td {
     padding: 8px;
-    background-color: var(--color-bg-primary);
+    background-color: #1e1e2e;
 }
 
 /* Input Fields */
 form[name="post"] input[type="text"] {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border-secondary);
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
     border-radius: 3px;
     padding: 6px 8px;
     font-family: inherit;
@@ -248,20 +207,20 @@ form[name="post"] input[type="text"] {
 }
 
 form[name="post"] input[type="text"]:focus {
-    border-color: var(--color-link-blue);
+    border-color: #b4befe;
     outline: none;
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
 form[name="post"] input[type="text"]::placeholder {
-    color: var(--color-text-subtle);
+    color: #6c7086;
 }
 
 /* Textarea - Fixed min-width to match form default */
 form[name="post"] textarea {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border-secondary);
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
     border-radius: 3px;
     padding: 8px;
     font-family: inherit;
@@ -271,22 +230,23 @@ form[name="post"] textarea {
     box-sizing: border-box;
     line-height: 1.5;
     min-height: 100px;
+    min-width: 768px; /* Matches form max-width minus padding */
 }
 
 form[name="post"] textarea:focus {
-    border-color: var(--color-link-blue);
+    border-color: #b4befe;
     outline: none;
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
 form[name="post"] textarea::placeholder {
-    color: var(--color-text-subtle);
+    color: #6c7086;
 }
 
 /* Submit Button */
 form[name="post"] input[type="submit"] {
-    background-color: var(--color-link-blue);
-    color: var(--color-bg-primary);
+    background-color: #b4befe;
+    color: #1e1e2e;
     border: none;
     border-radius: 4px;
     padding: 0px 8px;
@@ -300,13 +260,13 @@ form[name="post"] input[type="submit"] {
 }
 
 form[name="post"] input[type="submit"]:hover {
-    background-color: var(--color-hover-mauve);
+    background-color: #cba6f7;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
 }
 
 form[name="post"] input[type="submit"]:active {
-    background-color: var(--color-accent-subtle);
+    background-color: #89b4fa;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     transform: translateY(0);
 }
@@ -324,31 +284,31 @@ form[name="post"] #subject input[type="text"] {
 
 /* Checkbox & Label */
 form[name="post"] input[type="checkbox"] {
-    accent-color: var(--color-link-blue);
+    accent-color: #b4befe;
     cursor: pointer;
 }
 
 form[name="post"] label {
-    color: var(--color-text-primary);
+    color: #cdd6f4;
     font-size: 10pt;
     cursor: pointer;
 }
 
 form[name="post"] label:hover {
-    color: var(--color-text-muted);
+    color: #a6adc8;
 }
 
 /* Unimportant Text */
 form[name="post"] span.unimportant {
-    color: var(--color-text-subtle);
+    color: #6c7086;
     font-size: 9pt;
     margin-left: 8px;
 }
 
 /* File Upload Dropzone */
 form[name="post"] .dropzone-wrap {
-    background-color: var(--color-bg-primary);
-    border: 2px dashed var(--color-border-secondary);
+    background-color: #1e1e2e;
+    border: 2px dashed #45475a;
     border-radius: 4px;
     padding: 12px;
     text-align: center;
@@ -360,8 +320,8 @@ form[name="post"] .dropzone-wrap {
 }
 
 form[name="post"] .dropzone {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border-secondary);
+    background-color: #313244;
+    border: 1px solid #45475a;
     border-radius: 3px;
     padding: 16px;
     cursor: pointer;
@@ -371,23 +331,23 @@ form[name="post"] .dropzone {
 }
 
 form[name="post"] .dropzone:hover {
-    border-color: var(--color-link-blue);
+    border-color: #b4befe;
     background-color: #383a4e;
 }
 
 form[name="post"] .dropzone:focus {
     outline: none;
-    border-color: var(--color-link-blue);
+    border-color: #b4befe;
     box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
 form[name="post"] .dropzone:active {
-    background-color: var(--color-bg-secondary);
-    border-color: var(--color-hover-mauve);
+    background-color: #313244;
+    border-color: #cba6f7;
 }
 
 form[name="post"] .file-hint {
-    color: var(--color-text-muted);
+    color: #a6adc8;
     font-size: 11pt;
     word-wrap: break-word;
 }
@@ -402,8 +362,8 @@ form[name="post"] .file-thumbs {
 }
 
 form[name="post"] .tmb-container {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border-secondary);
+    background-color: #313244;
+    border: 1px solid #45475a;
     border-radius: 4px;
     padding: 8px;
     display: flex;
@@ -413,7 +373,7 @@ form[name="post"] .tmb-container {
 }
 
 form[name="post"] .remove-btn {
-    color: var(--color-danger);
+    color: #f38ba8;
     font-size: 14px;
     cursor: pointer;
     padding: 2px 6px;
@@ -424,7 +384,7 @@ form[name="post"] .remove-btn {
 
 form[name="post"] .remove-btn:hover {
     background-color: rgba(243, 139, 168, 0.2);
-    color: var(--color-success-hover);
+    color: #eba0ac;
 }
 
 form[name="post"] .file-tmb {
@@ -434,12 +394,12 @@ form[name="post"] .file-tmb {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 3px;
-    border: 1px solid var(--color-border-secondary);
+    border: 1px solid #45475a;
     flex-shrink: 0;
 }
 
 form[name="post"] .tmb-filename {
-    color: var(--color-text-primary);
+    color: #cdd6f4;
     font-size: 0pt;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -453,12 +413,12 @@ form[name="post"] .dropzone-wrap::-webkit-scrollbar {
 }
 
 form[name="post"] .dropzone-wrap::-webkit-scrollbar-track {
-    background: var(--color-bg-primary);
+    background: #1e1e2e;
     border-radius: 4px;
 }
 
 form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb {
-    background: var(--color-border-secondary);
+    background: #45475a;
     border-radius: 4px;
 }
 
@@ -466,11 +426,16 @@ form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb:hover {
     background: #585b70;
 }
 
+form[name="post"] .dropzone-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: #45475a #1e1e2e;
+}
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
 
+/* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
     form[name="post"] table {
         width: 100%;
@@ -508,122 +473,121 @@ form[name="post"] .dropzone-wrap::-webkit-scrollbar-thumb:hover {
         margin-left: 0;
     }
 }
-
-
+    
 /* ============================================
    POSTS & REPLIES
    ============================================ */
 
 div.post.reply {
-    margin-top: 2px;
-    margin-bottom: 2px;
-    margin-left: -4px;
-    background: var(--color-bg-secondary);
-    border: none;
-    color: var(--color-text-primary);
-    /* Width handling without !important */
-    width: calc(100vw - 36px);
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left: -4px;
+	background: #313244;
+	border: none;
+	color: #cdd6f4;
+	width: 100vw;
+	max-width: -webkit-calc(100vw - 36px)!important;
+	max-width: calc(100vw - 36px)!important;
+	line-height: 1.6;
 }
 
 div.post.reply.post-hover {
-    margin: 10px;
-    border-width: 1px;
-    border-style: none solid solid none;
-    border-color: var(--color-border-primary);
-    width: 50%;
+	margin: 10px;
+	border-width: 1px;
+	border-style: none solid solid none;
+	border-color: #181825;
+	width: 50%;
 }
 
 div.post.reply.highlighted {
-    background: var(--color-bg-secondary);
+	background: #313244;
 }
 
 div.post.reply div.body a {
-    color: var(--color-link-blue);
+	color: #b4befe;
 }
 
 div.post.reply div.body a:hover {
-    color: var(--color-text-muted);
-    text-decoration: underline;
+	color: #a6adc8;
+	text-decoration: underline;
 }
 
-/* Hover effect - consolidated box-shadow */
 .post-hover {
-    background-color: var(--color-bg-secondary);
-    border: none;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75); /* Single declaration */
+	background-color: #313244 !important;
+	border: none !important;
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75) !important;
 }
 
 p.intro span.name {
-    font-size: 11pt;
-    color: var(--color-text-primary);
-    font-weight: bold;
+	font-size: 11pt;
+	color: #cdd6f4;
+	font-weight: bold;
 }
 
 p.intro a.email span.name {
-    color: var(--color-text-primary);
+	color: #cdd6f4;
 }
 
 p.intro a.email:hover span.name {
-    color: var(--color-text-muted);
-    text-decoration: underline;
+	color: #a6adc8;
+	text-decoration: underline;
 }
 
 p.intro span.subject {
-    color: var(--color-hover-mauve); /* Mauve for subject */
+    color: #cba6f7; /* Mauve for subject */
 }
 
 p.fileinfo span.unimportant, p.fileinfo a {
-    font-size: 10pt;
+	font-size: 10pt;
 }
-
 
 /* ============================================
    TABLES & PAGINATION
    ============================================ */
 
 form table tr th {
-    background: var(--color-bg-secondary);
-    color: var(--color-text-primary);
-    padding: 2px 5px;
-    border: 1px solid var(--color-border-primary);
+	background: #313244;
+	color: #cdd6f4;
+	padding: 2px 5px;
+	border: 1px solid #181825;
 }
 
 div.pages {
-    background-color: var(--color-bg-secondary);
-    border: 1px groove var(--color-bg-primary);
-    color: var(--color-text-primary);
+	background-color: #313244;
+	border: 1px groove #1e1e2e;
+	color: #cdd6f4;
 }
 
 div.pages a.selected {
-    color: var(--color-link-blue); /* Lavender for selected */
+    color: #b4befe; /* Lavender for selected */
 }
 
 div.pages a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
-
 
 /* ============================================
    INPUTS & TEXTAREAS (GENERAL)
    ============================================ */
 
 input[type="text"], input[type="password"], textarea, input[type="submit"], input[type="file"] {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border-secondary);
-    font-family: inherit;
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	font-family: inherit;
 }
 
 input[type="text"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
-    color: var(--color-text-subtle);
+	color: #6c7086;
 }
 
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-    border-color: var(--color-link-blue);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+	border-color: #b4befe;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
-
 
 /* ============================================
    QUICK REPLY FORM - CATPPUCCIN MOCHA THEME
@@ -632,380 +596,269 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 
 /* Main form container */
 #quick-reply {
-    background-color: var(--color-bg-primary);
-    box-shadow: inset 0 0 0 1px var(--color-border-secondary); /* Inset shadow instead of border */
-    border-radius: 4px;
-    z-index: 100;
-    display: inline-block;
-    min-width: 320px;
-    min-height: 300px;
+	background-color: #1e1e2e;
+	box-shadow: inset 0 0 0 1px #45475a; /* Inset shadow instead of border */
+	border-radius: 4px;
+	z-index: 100;
+	display: inline-block;
+	min-width: 320px;
+	min-height: 300px;
 }
 
 /* Draggable handle / header */
 #quick-reply th {
-    background: var(--color-bg-secondary);
-    color: var(--color-text-primary);
-    padding: 4px 8px;
-    border-bottom: 1px solid var(--color-border-primary);
-    font-weight: bold;
+	background: #313244;
+	color: #cdd6f4;
+	padding: 4px 8px;
+	border-bottom: 1px solid #181825;
+	font-weight: bold;
 }
 
 /* Close button */
 #quick-reply .close-btn {
-    color: var(--color-danger);
-    font-size: 18px;
-    float: right;
-    text-decoration: none;
-    line-height: 1;
+	color: #f38ba8;
+	font-size: 18px;
+	float: right;
+	text-decoration: none;
+	line-height: 1;
 }
 
 #quick-reply .close-btn:hover {
-    color: var(--color-success-hover);
+	color: #eba0ac;
 }
 
 /* Handle text */
 #quick-reply .handle {
-    color: var(--color-text-primary);
-    font-size: 14px;
-    cursor: move;
+	color: #cdd6f4;
+	font-size: 14px;
+	cursor: move;
 }
 
 /* Table */
 #quick-reply table {
-    width: 100%;
-    border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 /* Input fields - CONSOLIDATED */
 #quick-reply input[type="text"],
 #quick-reply input[type="password"] {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border-secondary);
-    border-radius: 3px;
-    padding: 6px 8px;
-    font-family: inherit;
-    font-size: 10pt;
-    width: 100%;
-    box-sizing: border-box;
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	border-radius: 3px;
+	padding: 6px 8px;
+	font-family: inherit;
+	font-size: 10pt;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 #quick-reply input[type="text"]:focus,
 #quick-reply input[type="password"]:focus {
-    border-color: var(--color-link-blue);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+	border-color: #b4befe;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
 #quick-reply input[type="text"]::placeholder,
 #quick-reply input[type="password"]::placeholder {
-    color: var(--color-text-subtle);
+	color: #6c7086;
 }
 
 /* Submit button */
 #quick-reply input[type="submit"] {
-    background-color: var(--color-link-blue);
-    color: var(--color-bg-primary);
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-family: inherit;
-    font-size: 10pt;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	background-color: #b4befe;
+	color: #1e1e2e;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	font-family: inherit;
+	font-size: 10pt;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #quick-reply input[type="submit"]:hover {
-    background-color: var(--color-hover-mauve);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    transform: translateY(-1px);
+	background-color: #cba6f7;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+	transform: translateY(-1px);
 }
 
 #quick-reply input[type="submit"]:active {
-    background-color: var(--color-accent-subtle);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
+	background-color: #89b4fa;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	transform: translateY(0);
 }
 
 #quick-reply input[type="submit"]:disabled {
-    background-color: var(--color-border-secondary);
-    color: var(--color-text-subtle);
-    cursor: not-allowed;
-    opacity: 0.6;
-    box-shadow: none;
+	background-color: #45475a;
+	color: #6c7086;
+	cursor: not-allowed;
+	opacity: 0.6;
+	box-shadow: none;
 }
 
 /* Textarea - RESIZE HANDLE HERE */
 #quick-reply textarea {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border-secondary);
-    border-radius: 3px;
-    padding: 8px;
-    font-family: inherit;
-    font-size: 10pt;
-    resize: both;
-    width: 100%;
-    box-sizing: border-box;
-    line-height: 1.5;
-    min-height: 150px;
-    display: block;
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+	border: 1px solid #45475a;
+	border-radius: 3px;
+	padding: 8px;
+	font-family: inherit;
+	font-size: 10pt;
+	resize: both !important;
+	width: 100%;
+	box-sizing: border-box;
+	line-height: 1.5;
+	min-height: 150px;
+	display: block;
 }
 
 #quick-reply textarea:focus {
-    border-color: var(--color-link-blue);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+	border-color: #b4befe;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
 #quick-reply textarea::placeholder {
-    color: var(--color-text-subtle);
+	color: #6c7086;
 }
 
 /* Dropzone - SCROLLABLE WHEN CONTENT EXCEEDS HEIGHT */
 #quick-reply .dropzone-wrap {
-    background-color: var(--color-bg-primary);
-    border: 2px dashed var(--color-border-secondary);
-    border-radius: 4px;
-    padding: 12px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 8px;
-
-    /* Scrollable container */
-    max-height: 200px; /* Maximum height before scrolling */
-    overflow-y: auto; /* Vertical scrollbar when needed */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+	background-color: #1e1e2e;
+	border: 2px dashed #45475a;
+	border-radius: 4px;
+	padding: 12px;
+	text-align: center;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 8px;
+	
+	/* Scrollable container */
+	max-height: 200px; /* Maximum height before scrolling */
+	overflow-y: auto; /* Vertical scrollbar when needed */
+	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 #quick-reply .dropzone {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border-secondary);
-    border-radius: 3px;
-    padding: 16px;
-    cursor: pointer;
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 60px;
+	background-color: #313244;
+	border: 1px solid #45475a;
+	border-radius: 3px;
+	padding: 16px;
+	cursor: pointer;
+	width: 100%;
+	box-sizing: border-box;
+	min-height: 60px;
 }
 
 #quick-reply .dropzone:hover {
-    border-color: var(--color-link-blue);
-    background-color: #383a4e;
+	border-color: #b4befe;
+	background-color: #383a4e;
 }
 
 #quick-reply .dropzone:focus {
-    outline: none;
-    border-color: var(--color-link-blue);
-    box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
+	outline: none;
+	border-color: #b4befe;
+	box-shadow: 0 0 0 2px rgba(180, 190, 254, 0.2);
 }
 
 #quick-reply .dropzone:active {
-    background-color: var(--color-bg-secondary);
-    border-color: var(--color-hover-mauve);
+	background-color: #313244;
+	border-color: #cba6f7;
 }
 
 #quick-reply .file-hint {
-    color: var(--color-text-muted);
-    font-size: 11pt;
-    word-wrap: break-word;
+	color: #a6adc8;
+	font-size: 11pt;
+	word-wrap: break-word;
 }
 
 /* Custom Scrollbar Styling (Webkit browsers - Chrome, Edge, Safari) */
 #quick-reply .dropzone-wrap::-webkit-scrollbar {
-    width: 8px;
+	width: 8px;
 }
 
 #quick-reply .dropzone-wrap::-webkit-scrollbar-track {
-    background: var(--color-bg-primary);
-    border-radius: 4px;
+	background: #1e1e2e;
+	border-radius: 4px;
 }
 
 #quick-reply .dropzone-wrap::-webkit-scrollbar-thumb {
-    background: var(--color-border-secondary);
-    border-radius: 4px;
+	background: #45475a;
+	border-radius: 4px;
 }
 
 #quick-reply .dropzone-wrap::-webkit-scrollbar-thumb:hover {
-    background: #585b70;
+	background: #585b70;
 }
 
 /* Firefox Scrollbar Styling */
 #quick-reply .dropzone-wrap {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-border-secondary) var(--color-bg-primary);
+	scrollbar-width: thin;
+	scrollbar-color: #45475a #1e1e2e;
 }
 
-
-/* ============================================
-   FILE THUMBNAILS (Shared Styles)
-   ============================================ */
-
+/* File Thumbnails Container - HORIZONTAL LAYOUT */
 .file-thumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    width: 100%;
-    margin-top: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	width: 100%;
+	margin-top: 8px;
 }
 
+/* File Thumbnail Container */
 .tmb-container {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border-secondary);
-    border-radius: 4px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    position: relative;
+	background-color: #313244;
+	border: 1px solid #45475a;
+	border-radius: 4px;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	position: relative;
 }
 
+/* Remove Button (✖) */
 .remove-btn {
-    color: var(--color-danger);
-    font-size: 14px;
-    cursor: pointer;
-    padding: 2px 6px;
-    border-radius: 3px;
-    transition: all 0.2s ease;
-    line-height: 1;
+	color: #f38ba8;
+	font-size: 14px;
+	cursor: pointer;
+	padding: 2px 6px;
+	border-radius: 3px;
+	transition: all 0.2s ease;
+	line-height: 1;
 }
 
 .remove-btn:hover {
-    background-color: rgba(243, 139, 168, 0.2);
-    color: var(--color-success-hover);
+	background-color: rgba(243, 139, 168, 0.2);
+	color: #eba0ac;
 }
 
+/* File Thumbnail Image */
 .file-tmb {
-    width: 40px;
-    height: 40px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 3px;
-    border: 1px solid var(--color-border-secondary);
-    flex-shrink: 0;
+	width: 40px;
+	height: 40px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 3px;
+	border: 1px solid #45475a;
+	flex-shrink: 0;
 }
 
+/* Filename Text */
 .tmb-filename {
-    color: var(--color-text-primary);
-    font-size: 0pt;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    flex-grow: 1;
+	color: #cdd6f4;
+	font-size: 0pt;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	flex-grow: 1;
 }
-
-   
-/* ============================================
-   INTEGRATED POST HOVER ELEMENT
-   ============================================ */
-
-div.post.reply.post-hover {
-    background-color: var(--color-bg-secondary); /* Catppuccin secondary bg for hover */
-    border: 1px solid var(--color-border-secondary); /* Consistent border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 
-                inset 0 0 0 1px var(--color-border-primary); /* Layered shadows */
-    transition: all 0.2s ease-in-out;
 }
-
-/* Post Header (Name, Time, Post Numbers) */
-div.post.reply.post-hover .intro {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--color-border-primary);
-}
-
-div.post.reply.post-hover .intro a {
-    color: var(--color-link-blue); /* Catppuccin blue for links */
-    text-decoration: none;
-    transition: color 0.15s ease;
-}
-
-div.post.reply.post-hover .intro a:hover {
-    color: var(--color-mauve); /* Catppuccin mauve on hover */
-}
-
-/* File Elements & Images */
-div.post.reply.post-hover .file.multifile {
-    background-color: rgba(48, 50, 63, 0.3); /* Subtle file bg tint */
-    border-radius: 4px;
-    margin-bottom: 12px;
-}
-
-div.post.reply.post-hover .fileinfo a {
-    color: var(--color-text-muted);
-}
-
-/* File Images - Enhanced with Catppuccin styling */
-div.post.reply.post-hover img.post-image,
-div.post.reply.post-hover .file.multifile img {
-    border-radius: 4px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* File controls ([F] and [S]) */
-div.post.reply.post-hover .controls a.delete-btn,
-div.post.reply.post-hover .fileinfo span.controls a {
-    color: var(--color-text-subtle); /* Subtle default */
-    text-decoration: none;
-    padding: 1px 4px;
-}
-
-/* Delete post button [D] and Edit link */
-div.post.reply.post-hover .controls a.delete-btn:hover,
-div.post.reply.post-hover .controls a.edit-link {
-    color: var(--color-danger); /* Catppuccin danger red for destructive actions */
-}
-
-/* Body Content Styling */
-div.post.reply.post-hover .body {
-    padding: 12px;
-    background-color: rgba(30, 45, 60, 0.4); /* Subtle body bg distinction */
-    border-radius: 0 0 4px 4px;
-}
-
-div.post.reply.post-hover .body em {
-    color: var(--color-text-muted); /* Emphasized text in muted */
-    font-style: italic;
-}
-
-div.post.reply.post-hover .body strong,
-div.post.reply.post-hover .body b {
-    color: var(--color-link-blue); /* Bold text with accent blue */
-}
-
-/* Spoiler Content - Enhanced visibility */
-div.post.reply.post-hover .spoiler {
-    background-color: rgba(243, 139, 168, 0.15); /* Catppuccin danger red tint */
-    border: 1px dashed var(--color-danger);
-    padding: 8px;
-    border-radius: 4px;
-}
-
-/* Unimportant text - Respect existing class */
-div.post.reply.post-hover .unimportant {
-    color: var(--color-text-subtle); /* Subtle gray for unimportant info */
-}
-
-/* Responsive adjustments for file images */
-@media (max-width: 600px) {
-    div.post.reply.post-hover img.post-image,
-    div.post.reply.post-hover .file.multifile img {
-        max-width: calc(100% - 24px);
-    }
-}
-
-/* Focus state for accessibility */
-div.post.reply.post-hover:focus-within {
-    outline: 2px solid var(--color-accent-subtle);
-    outline-offset: 2px;
-}
-
-
-/* ============================================
-   END OF STYLE SHEET
-   ============================================ */
-
-} /* @-moz-document domain("novachan.net") */
