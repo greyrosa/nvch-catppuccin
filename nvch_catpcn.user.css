@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Novachan Catppuccin
 @namespace      greyrosa/nvch-catppuccin/
-@version        2.1.4
-@description    Novachan-specific stylesheet - Reverted and fixed
+@version        2.1.5
+@description    Novachan-specific stylesheet - Added post hover
 @author         Grey
 ==/UserStyle== */
 
@@ -896,6 +896,111 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     text-overflow: ellipsis;
     white-space: nowrap;
     flex-grow: 1;
+}
+
+   
+/* ============================================
+   INTEGRATED POST HOVER ELEMENT
+   ============================================ */
+
+div.post.reply.post-hover {
+    background-color: var(--color-bg-secondary); /* Catppuccin secondary bg for hover */
+    border: 1px solid var(--color-border-secondary); /* Consistent border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 
+                inset 0 0 0 1px var(--color-border-primary); /* Layered shadows */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Post Header (Name, Time, Post Numbers) */
+div.post.reply.post-hover .intro {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-border-primary);
+}
+
+div.post.reply.post-hover .intro a {
+    color: var(--color-link-blue); /* Catppuccin blue for links */
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+div.post.reply.post-hover .intro a:hover {
+    color: var(--color-mauve); /* Catppuccin mauve on hover */
+}
+
+/* File Elements & Images */
+div.post.reply.post-hover .file.multifile {
+    background-color: rgba(48, 50, 63, 0.3); /* Subtle file bg tint */
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+div.post.reply.post-hover .fileinfo a {
+    color: var(--color-text-muted);
+}
+
+/* File Images - Enhanced with Catppuccin styling */
+div.post.reply.post-hover img.post-image,
+div.post.reply.post-hover .file.multifile img {
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* File controls ([F] and [S]) */
+div.post.reply.post-hover .controls a.delete-btn,
+div.post.reply.post-hover .fileinfo span.controls a {
+    color: var(--color-text-subtle); /* Subtle default */
+    text-decoration: none;
+    padding: 1px 4px;
+}
+
+/* Delete post button [D] and Edit link */
+div.post.reply.post-hover .controls a.delete-btn:hover,
+div.post.reply.post-hover .controls a.edit-link {
+    color: var(--color-danger); /* Catppuccin danger red for destructive actions */
+}
+
+/* Body Content Styling */
+div.post.reply.post-hover .body {
+    padding: 12px;
+    background-color: rgba(30, 45, 60, 0.4); /* Subtle body bg distinction */
+    border-radius: 0 0 4px 4px;
+}
+
+div.post.reply.post-hover .body em {
+    color: var(--color-text-muted); /* Emphasized text in muted */
+    font-style: italic;
+}
+
+div.post.reply.post-hover .body strong,
+div.post.reply.post-hover .body b {
+    color: var(--color-link-blue); /* Bold text with accent blue */
+}
+
+/* Spoiler Content - Enhanced visibility */
+div.post.reply.post-hover .spoiler {
+    background-color: rgba(243, 139, 168, 0.15); /* Catppuccin danger red tint */
+    border: 1px dashed var(--color-danger);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Unimportant text - Respect existing class */
+div.post.reply.post-hover .unimportant {
+    color: var(--color-text-subtle); /* Subtle gray for unimportant info */
+}
+
+/* Responsive adjustments for file images */
+@media (max-width: 600px) {
+    div.post.reply.post-hover img.post-image,
+    div.post.reply.post-hover .file.multifile img {
+        max-width: calc(100% - 24px);
+    }
+}
+
+/* Focus state for accessibility */
+div.post.reply.post-hover:focus-within {
+    outline: 2px solid var(--color-accent-subtle);
+    outline-offset: 2px;
 }
 
 
